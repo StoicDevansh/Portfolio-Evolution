@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Journey — Devansh Gupta</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-outline" id="cursorOutline"></div>
+    <div class="loader" id="loader"><div class="loader-content"><div class="loader-bar"></div><span class="loader-text">Loading</span></div></div>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><div class="logo-icon">DG</div><span>Devansh</span></a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="skills.html" class="nav-link">Skills</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="certifications.html" class="nav-link">Certifications</a>
+                <a href="hackathons.html" class="nav-link">Events</a>
+                <a href="journey.html" class="nav-link active">Journey</a>
+                <a href="posts.html" class="nav-link">LinkedIn</a>
+                <a href="contact.html" class="nav-link nav-link-cta">Contact</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu"><div class="mobile-menu-content">
+        <a href="index.html" class="mobile-link">Home</a><a href="skills.html" class="mobile-link">Skills</a>
+        <a href="projects.html" class="mobile-link">Projects</a><a href="certifications.html" class="mobile-link">Certifications</a>
+        <a href="hackathons.html" class="mobile-link">Events</a><a href="journey.html" class="mobile-link">Journey</a>
+        <a href="posts.html" class="mobile-link">LinkedIn</a><a href="contact.html" class="mobile-link">Contact</a>
+    </div></div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-bg"><div class="page-header-gradient"></div><div class="page-header-grid"></div></div>
+        <div class="container">
+            <div class="page-header-content">
+                <div class="breadcrumb reveal-up"><a href="index.html">Home</a><span class="sep">/</span><span>Journey</span></div>
+                <h1 class="reveal-up">My <em>Journey</em></h1>
+                <p class="reveal-up">A chronological look at the milestones, achievements, and turning points that have shaped who I am today.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google-style Journey Timeline -->
+    <section class="section journey-section">
+        <div class="container">
+
+            <!-- Journey Line -->
+            <div class="journey-timeline">
+
+                <!-- ============ YEAR: PRESENT ============ -->
+                <div class="journey-year reveal-up">
+                    <div class="journey-year-label">
+                        <span class="year-badge now">Now</span>
+                    </div>
+                </div>
+
+                <!-- Present -->
+                <div class="journey-node reveal-up" style="--delay:0.05s">
+                    <div class="journey-node-dot pulse-dot"></div>
+                    <div class="journey-node-line"></div>
+                    <div class="journey-card-wrapper">
+                        <div class="journey-card jc-highlight">
+                            <div class="jc-icon" style="background: rgba(0,214,143,0.12); color: var(--green);">🚀</div>
+                            <div class="jc-content">
+                                <span class="jc-date">Present</span>
+                                <h3>Building & Learning</h3>
+                                <!-- UPDATE: your current focus -->
+                                <p>Currently pursuing B.Tech in Computer Science, working on personal projects, and deepening my skills in cybersecurity, web development, and problem solving.</p>
+                                <div class="jc-tags">
+                                    <span class="tag tag-accent">In Progress</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============ YEAR: 2025 ============ -->
+                <div class="journey-year reveal-up">
+                    <div class="journey-year-label">
+                        <span class="year-badge">2025</span>
+                    </div>
+                </div>
+
+                <!-- UPDATE: Replace placeholder events below with your real milestones -->
+
+                <div class="journey-node reveal-up" style="--delay:0.05s">
+                    <div class="journey-node-dot"></div>
+                    <div class="journey-node-line"></div>
+                    <div class="journey-card-wrapper">
+                        <div class="journey-card">
+                            <div class="jc-icon" style="background: rgba(108,92,231,0.12); color: var(--accent);">💻</div>
+                            <div class="jc-content">
+                                <span class="jc-date">2025</span>
+                                <h3>Portfolio Website Built</h3>
+                                <!-- UPDATE -->
+                                <p>Designed and developed a multi-page personal portfolio website from scratch to showcase skills, projects, and professional journey.</p>
+                                <div class="jc-tags">
+                                    <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="journey-node journey-node-right reveal-up" style="--delay:0.1s">
+                    <div class="journey-node-dot"></div>
+                    <div class="journey-node-line"></div>
+                    <div class="journey-card-wrapper">
+                        <div class="journey-card">
+                            <div class="jc-icon" style="background: rgba(0,206,201,0.12); color: var(--accent-2);">📜</div>
+                            <div class="jc-content">
+                                <span class="jc-date">2025</span>
+                                <!-- UPDATE: Add your real certification -->
+                                <h3>New Certification Earned</h3>
+                                <p>Completed a new certification course, expanding expertise in a key area of technology.</p>
+                                <div class="jc-tags"><span class="tag">Certification</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============ YEAR: 2024 ============ -->
+                <div class="journey-year reveal-up">
+                    <div class="journey-year-label">
+                        <span class="year-badge">2024</span>
+                    </div>
+                </div>
+
+                <div class="journey-node reveal-up" style="--delay:0.05s">
+                    <div class="journey-node-dot"></div>
+                    <div class="journey-node-line"></div>
+                    <div class="journey-card-wrapper">
+                        <div class="journey-card">
+                            <div class="jc-icon" style="background: rgba(108,92,231,0.12); color: var(--accent);">🚀</div>
+                            <div class="jc-content">
+                                <span class="jc-date">Oct 2024</span>
+                                <h3>NASA Space Apps Challenge</h3>
+                                <p>Participated in the world's largest annual global hackathon by NASA. Collaborated with a team to solve real-world challenges using open data and innovative thinking.</p>
+                                <div class="jc-tags">
+                                    <span class="tag tag-accent">Hackathon</span><span class="tag">Space Tech</span><span class="tag">Teamwork</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="journey-node journey-node-right reveal-up" style="--delay:0.1s">
+                    <div class="journey-node-dot"></div>
+                    <div class="journey-node-line"></div>
+                    <div class="journey-card-wrapper">
+                        <div class="journey-card">
+                            <div class="jc-icon" style="background: rgba(0,206,201,0.12); color: var(--accent-2);">🌐</div>
+                            <div class="jc-content">
+                                <span class="jc-date">2024</span>
+                                <h3>Google Developer Group (GDG) Event</h3>
+                                <p>Attended a GDG community event, learning about cutting-edge Google technologies, meeting developers, and expanding my professional network.</p>
+                                <div class="jc-tags">
+                                    <span class="tag tag-accent">Event</span><span class="tag">Google</span><span class="tag">Networking</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="journey-node reveal-up" style="--delay:0.15s">
+                    <div class="journey-node-dot"></div>
+                    <div class="journey-node-line"></div>
+                    <div class="journey-card-wrapper">
+                        <div class="journey-card">
+                            <div class="jc-icon" style="background: rgba(253,121,168,0.12); color: var(--accent-3);">🎓</div>
+                            <div class="jc-content">
+                                <span class="jc-date">2024</span>
+                                <!-- UPDATE: Add your real college start year -->
+                                <h3>Started B.Tech in Computer Science</h3>
+                                <p>Enrolled in B.Tech Computer Science program, beginning a focused academic journey into software development, cybersecurity, and data science.</p>
+                                <div class="jc-tags"><span class="tag tag-green">Education</span><span class="tag">Computer Science</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="journey-node journey-node-right reveal-up" style="--delay:0.2s">
+                    <div class="journey-node-dot"></div>
+                    <div class="journey-node-line"></div>
+                    <div class="journey-card-wrapper">
+                        <div class="journey-card">
+                            <div class="jc-icon" style="background: rgba(243,156,18,0.12); color: var(--orange);">🐍</div>
+                            <div class="jc-content">
+                                <span class="jc-date">2024</span>
+                                <h3>Learned Python & SQL</h3>
+                                <p>Gained proficiency in Python for scripting, automation, and data analysis. Also learned SQL for database management and querying.</p>
+                                <div class="jc-tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">DBMS</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============ YEAR: 2023 ============ -->
+                <div class="journey-year reveal-up">
+                    <div class="journey-year-label">
+                        <span class="year-badge">2023</span>
+                    </div>
+                </div>
+
+                <div class="journey-node reveal-up" style="--delay:0.05s">
+                    <div class="journey-node-dot"></div>
+                    <div class="journey-node-line"></div>
+                    <div class="journey-card-wrapper">
+                        <div class="journey-card">
+                            <div class="jc-icon" style="background: rgba(108,92,231,0.12); color: var(--accent);">🔐</div>
+                            <div class="jc-content">
+                                <span class="jc-date">2023</span>
+                                <h3>Discovered Cybersecurity</h3>
+                                <!-- UPDATE -->
+                                <p>Began exploring the world of cybersecurity — learning about ethical hacking, network security, and digital forensics. This sparked a deep passion for securing the digital world.</p>
+                                <div class="jc-tags"><span class="tag tag-accent">Cybersecurity</span><span class="tag">Ethical Hacking</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="journey-node journey-node-right reveal-up" style="--delay:0.1s">
+                    <div class="journey-node-dot"></div>
+                    <div class="journey-node-line"></div>
+                    <div class="journey-card-wrapper">
+                        <div class="journey-card">
+                            <div class="jc-icon" style="background: rgba(0,214,143,0.12); color: var(--green);">🌐</div>
+                            <div class="jc-content">
+                                <span class="jc-date">2023</span>
+                                <h3>First Steps in Web Development</h3>
+                                <p>Started learning HTML, CSS, and JavaScript — building simple websites and understanding how the web works from the ground up.</p>
+                                <div class="jc-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============ YEAR: 2022 ============ -->
+                <div class="journey-year reveal-up">
+                    <div class="journey-year-label">
+                        <span class="year-badge">2022</span>
+                    </div>
+                </div>
+
+                <div class="journey-node reveal-up" style="--delay:0.05s">
+                    <div class="journey-node-dot"></div>
+                    <div class="journey-node-line"></div>
+                    <div class="journey-card-wrapper">
+                        <div class="journey-card">
+                            <div class="jc-icon" style="background: rgba(253,121,168,0.12); color: var(--accent-3);">⌨️</div>
+                            <div class="jc-content">
+                                <span class="jc-date">2022</span>
+                                <h3>Learned C & C++</h3>
+                                <!-- UPDATE -->
+                                <p>Took my first structured programming classes, learning C and C++. Built a strong foundation in data structures, algorithms, and low-level programming.</p>
+                                <div class="jc-tags"><span class="tag">C</span><span class="tag">C++</span><span class="tag">DSA</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============ YEAR: EARLIER ============ -->
+                <div class="journey-year reveal-up">
+                    <div class="journey-year-label">
+                        <span class="year-badge">Earlier</span>
+                    </div>
+                </div>
+
+                <div class="journey-node journey-node-right reveal-up" style="--delay:0.05s">
+                    <div class="journey-node-dot"></div>
+                    <div class="journey-node-line"></div>
+                    <div class="journey-card-wrapper">
+                        <div class="journey-card">
+                            <div class="jc-icon" style="background: rgba(108,92,231,0.12); color: var(--accent);">🎮</div>
+                            <div class="jc-content">
+                                <span class="jc-date">The Beginning</span>
+                                <h3>The Curiosity Sparked</h3>
+                                <!-- UPDATE -->
+                                <p>Developed a deep fascination with computers and technology. From tinkering with software to wondering how apps and games are built — this is where it all started.</p>
+                                <div class="jc-tags"><span class="tag tag-green">Origin Story</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Journey End Marker -->
+                <div class="journey-end reveal-up">
+                    <div class="journey-end-dot"></div>
+                    <p>The beginning...</p>
+                </div>
+
+                <!-- ADD MORE JOURNEY NODES:
+                     Copy a journey-node block and paste between the year sections.
+                     Use class "journey-node-right" to alternate sides.
+                -->
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section linkedin-cta">
+        <div class="container">
+            <div class="cta-card reveal-up">
+                <h2>Want the full <em>story</em>?</h2>
+                <p>Connect with me on LinkedIn for a detailed view of my professional journey, endorsements, and latest updates.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem;">
+                    <a href="https://www.linkedin.com/in/cyber-devansh" target="_blank" class="btn btn-linkedin">
+                        <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M6 9v5m4-3.5V14m0-2.5c0-1.5 1-2.5 2.5-2.5s1.5 1 1.5 2.5V14M6 6.5v0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                        View LinkedIn Profile
+                    </a>
+                    <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo"><div class="logo-icon">DG</div><span>Devansh</span></a>
+                    <p class="footer-desc">B.Tech Computer Science student passionate about development, cybersecurity, and building meaningful technology.</p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/in/cyber-devansh" target="_blank" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M6 9v5m4-3.5V14m0-2.5c0-1.5 1-2.5 2.5-2.5s1.5 1 1.5 2.5V14M6 6.5v0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+                        <a href="https://github.com/" target="_blank" aria-label="GitHub"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2C5.58 2 2 5.58 2 10c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0018 10c0-4.42-3.58-8-8-8z" stroke="currentColor" stroke-width="1.2"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-links-group"><h4>Pages</h4><a href="index.html">Home</a><a href="skills.html">Skills</a><a href="projects.html">Projects</a><a href="certifications.html">Certifications</a></div>
+                <div class="footer-links-group"><h4>More</h4><a href="hackathons.html">Hackathons</a><a href="journey.html">Journey</a><a href="posts.html">LinkedIn Posts</a><a href="contact.html">Contact</a></div>
+                <div class="footer-links-group"><h4>Connect</h4><a href="https://www.linkedin.com/in/cyber-devansh" target="_blank">LinkedIn</a><a href="https://github.com/" target="_blank">GitHub</a><a href="mailto:your.email@example.com">Email</a></div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Devansh Gupta. All rights reserved.</p>
+                <a href="#" class="back-to-top" aria-label="Back to top"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 15V5m0 0l-4 4m4-4l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+        </div>
+    </footer>
+    <script src="js/app.js"></script>
+</body>
+</html>

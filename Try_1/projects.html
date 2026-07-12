@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects — Devansh Gupta</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-outline" id="cursorOutline"></div>
+    <div class="loader" id="loader"><div class="loader-content"><div class="loader-bar"></div><span class="loader-text">Loading</span></div></div>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><div class="logo-icon">DG</div><span>Devansh</span></a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="skills.html" class="nav-link">Skills</a>
+                <a href="projects.html" class="nav-link active">Projects</a>
+                <a href="certifications.html" class="nav-link">Certifications</a>
+                <a href="hackathons.html" class="nav-link">Events</a>
+                <a href="journey.html" class="nav-link">Journey</a>
+                <a href="posts.html" class="nav-link">LinkedIn</a>
+                <a href="contact.html" class="nav-link nav-link-cta">Contact</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu"><div class="mobile-menu-content">
+        <a href="index.html" class="mobile-link">Home</a><a href="skills.html" class="mobile-link">Skills</a>
+        <a href="projects.html" class="mobile-link">Projects</a><a href="certifications.html" class="mobile-link">Certifications</a>
+        <a href="hackathons.html" class="mobile-link">Events</a><a href="journey.html" class="mobile-link">Journey</a>
+        <a href="posts.html" class="mobile-link">LinkedIn</a>
+        <a href="contact.html" class="mobile-link">Contact</a>
+    </div></div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-bg"><div class="page-header-gradient"></div><div class="page-header-grid"></div></div>
+        <div class="container">
+            <div class="page-header-content">
+                <div class="breadcrumb reveal-up"><a href="index.html">Home</a><span class="sep">/</span><span>Projects</span></div>
+                <h1 class="reveal-up">My <em>Projects</em></h1>
+                <p class="reveal-up">A collection of projects I've built — from web applications to cybersecurity tools and data analysis solutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="section">
+        <div class="container">
+            <div class="grid-2">
+
+                <!-- PROJECT 1 -->
+                <div class="card project-card reveal-up" style="--delay: 0.05s">
+                    <div class="project-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <span class="featured-badge">Featured</span>
+                        <div class="project-image-inner">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none"><rect x="15" y="15" width="50" height="50" rx="8" stroke="white" stroke-width="2" opacity="0.3"/><path d="M30 40l7 7 13-14" stroke="white" stroke-width="2.5" opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <!-- UPDATE: Change tags per project -->
+                            <span class="tag tag-accent">Python</span>
+                            <span class="tag">Cybersecurity</span>
+                        </div>
+                        <!-- UPDATE: Project name -->
+                        <h3 class="project-title">Project Name 1</h3>
+                        <!-- UPDATE: Project description -->
+                        <p class="project-desc">Brief description of what this project does, the problem it solves, and the technologies used to build it.</p>
+                        <div class="project-links">
+                            <!-- UPDATE: Add actual links -->
+                            <a href="#" class="project-link" target="_blank">
+                                Live Demo
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12l8-8m0 0H5m7 0v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </a>
+                            <a href="#" class="project-link" target="_blank">
+                                GitHub
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12l8-8m0 0H5m7 0v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROJECT 2 -->
+                <div class="card project-card reveal-up" style="--delay: 0.1s">
+                    <div class="project-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <div class="project-image-inner">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="20" stroke="white" stroke-width="2" opacity="0.3"/><circle cx="40" cy="40" r="10" stroke="white" stroke-width="2" opacity="0.5"/><circle cx="40" cy="40" r="3" fill="white" opacity="0.5"/></svg>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="tag tag-accent">HTML/CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <h3 class="project-title">Project Name 2</h3>
+                        <p class="project-desc">Brief description of your second project. What it does, why you built it, and what you learned.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link" target="_blank">Live Demo <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12l8-8m0 0H5m7 0v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                            <a href="#" class="project-link" target="_blank">GitHub <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12l8-8m0 0H5m7 0v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROJECT 3 -->
+                <div class="card project-card reveal-up" style="--delay: 0.15s">
+                    <div class="project-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <div class="project-image-inner">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none"><rect x="18" y="22" width="44" height="32" rx="3" stroke="white" stroke-width="2" opacity="0.3"/><line x1="18" y1="30" x2="62" y2="30" stroke="white" stroke-width="1.5" opacity="0.3"/><rect x="24" y="35" width="20" height="3" rx="1.5" fill="white" opacity="0.4"/><rect x="24" y="42" width="14" height="3" rx="1.5" fill="white" opacity="0.3"/></svg>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="tag tag-accent">Python</span>
+                            <span class="tag">Data Science</span>
+                        </div>
+                        <h3 class="project-title">Project Name 3</h3>
+                        <p class="project-desc">Description of your third project — data analysis, web scraping, or any other interesting work.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link" target="_blank">View Project <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12l8-8m0 0H5m7 0v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROJECT 4 -->
+                <div class="card project-card reveal-up" style="--delay: 0.2s">
+                    <div class="project-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                        <div class="project-image-inner">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none"><path d="M30 55V25l20 15-20 15z" stroke="#333" stroke-width="2" opacity="0.3" stroke-linejoin="round"/></svg>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="tag tag-accent">C++</span>
+                            <span class="tag">DSA</span>
+                        </div>
+                        <h3 class="project-title">Project Name 4</h3>
+                        <p class="project-desc">Description of another project — maybe a CLI tool, an algorithm visualizer, or a game.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link" target="_blank">GitHub <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12l8-8m0 0H5m7 0v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROJECT 5 -->
+                <div class="card project-card reveal-up" style="--delay: 0.25s">
+                    <div class="project-image" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+                        <div class="project-image-inner">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none"><path d="M25 55l15-30 15 30H25z" stroke="#333" stroke-width="2" opacity="0.3" stroke-linejoin="round"/><line x1="40" y1="40" x2="40" y2="50" stroke="#333" stroke-width="2" opacity="0.4" stroke-linecap="round"/><circle cx="40" cy="52" r="1.5" fill="#333" opacity="0.4"/></svg>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="tag tag-accent">SQL</span>
+                            <span class="tag">DBMS</span>
+                        </div>
+                        <h3 class="project-title">Project Name 5</h3>
+                        <p class="project-desc">A database project, management system, or any SQL-based application you've built.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link" target="_blank">View Details <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12l8-8m0 0H5m7 0v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROJECT 6 -->
+                <div class="card project-card reveal-up" style="--delay: 0.3s">
+                    <div class="project-image" style="background: linear-gradient(135deg, #c3cfe2 0%, #f5f7fa 100%);">
+                        <div class="project-image-inner">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none"><rect x="20" y="20" width="40" height="40" rx="8" stroke="#333" stroke-width="2" opacity="0.3"/><path d="M32 35l8 5-8 5v-10z" fill="#333" opacity="0.3"/><rect x="44" y="33" width="10" height="2" rx="1" fill="#333" opacity="0.3"/><rect x="44" y="39" width="8" height="2" rx="1" fill="#333" opacity="0.2"/><rect x="44" y="45" width="6" height="2" rx="1" fill="#333" opacity="0.2"/></svg>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="tag tag-accent">JavaScript</span>
+                            <span class="tag">Web App</span>
+                        </div>
+                        <h3 class="project-title">Project Name 6</h3>
+                        <p class="project-desc">Another cool project. Replace this with your actual project details.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link" target="_blank">Live Demo <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12l8-8m0 0H5m7 0v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                            <a href="#" class="project-link" target="_blank">GitHub <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12l8-8m0 0H5m7 0v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo"><div class="logo-icon">DG</div><span>Devansh</span></a>
+                    <p class="footer-desc">B.Tech Computer Science student passionate about development, cybersecurity, and building meaningful technology.</p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/in/cyber-devansh" target="_blank" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M6 9v5m4-3.5V14m0-2.5c0-1.5 1-2.5 2.5-2.5s1.5 1 1.5 2.5V14M6 6.5v0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+                        <a href="https://github.com/" target="_blank" aria-label="GitHub"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2C5.58 2 2 5.58 2 10c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0018 10c0-4.42-3.58-8-8-8z" stroke="currentColor" stroke-width="1.2"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-links-group"><h4>Pages</h4><a href="index.html">Home</a><a href="skills.html">Skills</a><a href="projects.html">Projects</a><a href="certifications.html">Certifications</a></div>
+                <div class="footer-links-group"><h4>More</h4><a href="hackathons.html">Hackathons</a><a href="journey.html">Journey</a><a href="posts.html">LinkedIn Posts</a><a href="contact.html">Contact</a></div>
+                <div class="footer-links-group"><h4>Connect</h4><a href="https://www.linkedin.com/in/cyber-devansh" target="_blank">LinkedIn</a><a href="https://github.com/" target="_blank">GitHub</a><a href="mailto:your.email@example.com">Email</a></div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Devansh Gupta. All rights reserved.</p>
+                <a href="#" class="back-to-top" aria-label="Back to top"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 15V5m0 0l-4 4m4-4l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+        </div>
+    </footer>
+    <script src="js/app.js"></script>
+</body>
+</html>

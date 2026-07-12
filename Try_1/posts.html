@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Posts — Devansh Gupta</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* LinkedIn Posts Page - Extra Styles */
+        .posts-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+        .posts-intro p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        .linkedin-embed-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .linkedin-post-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .linkedin-post-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(108, 92, 231, 0.1);
+        }
+        .post-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .post-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: #fff;
+            flex-shrink: 0;
+        }
+        .post-author-info h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+        .post-author-info span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .post-card-body {
+            padding: 1.25rem 1.5rem;
+        }
+        .post-card-body p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.65;
+            margin-bottom: 0;
+        }
+        .post-card-body .post-hashtags {
+            margin-top: 0.75rem;
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .post-card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.2), rgba(0, 206, 201, 0.2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+        .post-card-engagement {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+        .engagement-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        .post-card-footer {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        .post-card-footer a {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.3s;
+        }
+        .post-card-footer a:hover {
+            color: var(--accent-light);
+        }
+
+        /* Dynamic posts container */
+        .dynamic-posts-area {
+            min-height: 200px;
+            position: relative;
+        }
+        .posts-loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+            gap: 1rem;
+            color: var(--text-muted);
+        }
+        .posts-loading .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .posts-error {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+        }
+        .posts-error svg {
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        /* LinkedIn Feed Embed */
+        .linkedin-feed-embed {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .linkedin-feed-embed iframe {
+            border: none;
+            border-radius: 12px;
+            max-width: 100%;
+        }
+        .manual-posts-note {
+            background: rgba(108, 92, 231, 0.08);
+            border: 1px solid rgba(108, 92, 231, 0.2);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+        .manual-posts-note strong {
+            color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-outline" id="cursorOutline"></div>
+    <div class="loader" id="loader"><div class="loader-content"><div class="loader-bar"></div><span class="loader-text">Loading</span></div></div>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><div class="logo-icon">DG</div><span>Devansh</span></a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="skills.html" class="nav-link">Skills</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="certifications.html" class="nav-link">Certifications</a>
+                <a href="hackathons.html" class="nav-link">Events</a>
+                <a href="journey.html" class="nav-link">Journey</a>
+                <a href="posts.html" class="nav-link active">LinkedIn</a>
+                <a href="contact.html" class="nav-link nav-link-cta">Contact</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu"><div class="mobile-menu-content">
+        <a href="index.html" class="mobile-link">Home</a><a href="skills.html" class="mobile-link">Skills</a>
+        <a href="projects.html" class="mobile-link">Projects</a><a href="certifications.html" class="mobile-link">Certifications</a>
+        <a href="hackathons.html" class="mobile-link">Events</a><a href="journey.html" class="mobile-link">Journey</a>
+        <a href="posts.html" class="mobile-link">LinkedIn</a>
+        <a href="contact.html" class="mobile-link">Contact</a>
+    </div></div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-bg"><div class="page-header-gradient"></div><div class="page-header-grid"></div></div>
+        <div class="container">
+            <div class="page-header-content">
+                <div class="breadcrumb reveal-up"><a href="index.html">Home</a><span class="sep">/</span><span>LinkedIn Posts</span></div>
+                <h1 class="reveal-up">LinkedIn <em>Posts</em></h1>
+                <p class="reveal-up">My latest thoughts, updates, and insights shared on LinkedIn. Stay connected with my professional journey.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- View Posts CTA (Top) -->
+    <section class="section" style="padding-bottom: 0;">
+        <div class="container">
+            <div class="posts-intro reveal-up">
+                <p>I regularly share insights on cybersecurity, web development, tech events, and my learning journey on LinkedIn. Here's a selection of my recent posts.</p>
+                <div style="margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://www.linkedin.com/in/cyber-devansh/recent-activity/all/" target="_blank" class="btn btn-linkedin">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M6 9v5m4-3.5V14m0-2.5c0-1.5 1-2.5 2.5-2.5s1.5 1 1.5 2.5V14M6 6.5v0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                        View All My Posts
+                    </a>
+                    <a href="https://www.linkedin.com/in/cyber-devansh" target="_blank" class="btn btn-outline">
+                        Visit My Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Posts Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">Latest Activity</span>
+                <h2>Recent <em>Posts</em></h2>
+            </div>
+
+            <!-- Dynamic LinkedIn post embeds -->
+            <div class="dynamic-posts-area" id="dynamicPosts">
+                <div class="posts-loading" id="postsLoading">
+                    <div class="spinner"></div>
+                    <span>Fetching latest posts...</span>
+                </div>
+            </div>
+
+            <!-- Fallback: Manually curated post cards -->
+            <div id="fallbackPosts" style="display: none;">
+                <div class="manual-posts-note">
+                    <strong>Note:</strong> These are manually added posts. To keep them up to date, update the post content below with your latest LinkedIn posts.
+                </div>
+
+                <div class="linkedin-embed-grid">
+
+                    <!-- POST 1 — UPDATE with your real LinkedIn post -->
+                    <div class="linkedin-post-card reveal-up" style="--delay: 0.05s">
+                        <div class="post-card-header">
+                            <div class="post-avatar">DG</div>
+                            <div class="post-author-info">
+                                <h4>Devansh Gupta</h4>
+                                <span>B.Tech CS Student • Developer</span>
+                            </div>
+                        </div>
+                        <div class="post-card-body">
+                            <!-- UPDATE: Replace with your actual post content -->
+                            <p>🚀 Excited to share my latest project! Working on building innovative solutions that bridge cybersecurity and web development. Stay tuned for more updates!</p>
+                            <div class="post-hashtags">#cybersecurity #webdevelopment #techjourney #learning</div>
+                        </div>
+                        <div class="post-card-image">📸 Post Image Placeholder</div>
+                        <div class="post-card-engagement">
+                            <span class="engagement-item">👍 Likes</span>
+                            <span class="engagement-item">💬 Comments</span>
+                            <span class="engagement-item">🔄 Reposts</span>
+                        </div>
+                        <div class="post-card-footer">
+                            <!-- UPDATE: Replace # with your actual LinkedIn post URL -->
+                            <a href="https://www.linkedin.com/in/cyber-devansh/recent-activity/all/" target="_blank">
+                                View Post on LinkedIn
+                                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 12l8-8m0 0H5m7 0v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- POST 2 -->
+                    <div class="linkedin-post-card reveal-up" style="--delay: 0.1s">
+                        <div class="post-card-header">
+                            <div class="post-avatar">DG</div>
+                            <div class="post-author-info">
+                                <h4>Devansh Gupta</h4>
+                                <span>B.Tech CS Student • Developer</span>
+                            </div>
+                        </div>
+                        <div class="post-card-body">
+                            <!-- UPDATE: Replace with your actual post content -->
+                            <p>🎯 Just participated in an amazing hackathon! The experience of collaborating with talented developers and solving real-world challenges is unmatched. Grateful for this opportunity.</p>
+                            <div class="post-hashtags">#hackathon #teamwork #innovation #coding</div>
+                        </div>
+                        <div class="post-card-engagement">
+                            <span class="engagement-item">👍 Likes</span>
+                            <span class="engagement-item">💬 Comments</span>
+                            <span class="engagement-item">🔄 Reposts</span>
+                        </div>
+                        <div class="post-card-footer">
+                            <a href="https://www.linkedin.com/in/cyber-devansh/recent-activity/all/" target="_blank">
+                                View Post on LinkedIn
+                                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 12l8-8m0 0H5m7 0v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- POST 3 -->
+                    <div class="linkedin-post-card reveal-up" style="--delay: 0.15s">
+                        <div class="post-card-header">
+                            <div class="post-avatar">DG</div>
+                            <div class="post-author-info">
+                                <h4>Devansh Gupta</h4>
+                                <span>B.Tech CS Student • Developer</span>
+                            </div>
+                        </div>
+                        <div class="post-card-body">
+                            <!-- UPDATE: Replace with your actual post content -->
+                            <p>📚 Completed another certification! Continuous learning is the key to staying relevant in the tech industry. Every certificate is a stepping stone towards mastery.</p>
+                            <div class="post-hashtags">#learning #certification #growthmindset #tech</div>
+                        </div>
+                        <div class="post-card-engagement">
+                            <span class="engagement-item">👍 Likes</span>
+                            <span class="engagement-item">💬 Comments</span>
+                            <span class="engagement-item">🔄 Reposts</span>
+                        </div>
+                        <div class="post-card-footer">
+                            <a href="https://www.linkedin.com/in/cyber-devansh/recent-activity/all/" target="_blank">
+                                View Post on LinkedIn
+                                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 12l8-8m0 0H5m7 0v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- POST 4 -->
+                    <div class="linkedin-post-card reveal-up" style="--delay: 0.2s">
+                        <div class="post-card-header">
+                            <div class="post-avatar">DG</div>
+                            <div class="post-author-info">
+                                <h4>Devansh Gupta</h4>
+                                <span>B.Tech CS Student • Developer</span>
+                            </div>
+                        </div>
+                        <div class="post-card-body">
+                            <!-- UPDATE: Replace with your actual post content -->
+                            <p>🌟 Attending a Google Developer Group meetup! The energy of the developer community is incredible. Learning, networking, and growing together.</p>
+                            <div class="post-hashtags">#GDG #GoogleDevelopers #community #networking</div>
+                        </div>
+                        <div class="post-card-engagement">
+                            <span class="engagement-item">👍 Likes</span>
+                            <span class="engagement-item">💬 Comments</span>
+                            <span class="engagement-item">🔄 Reposts</span>
+                        </div>
+                        <div class="post-card-footer">
+                            <a href="https://www.linkedin.com/in/cyber-devansh/recent-activity/all/" target="_blank">
+                                View Post on LinkedIn
+                                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 12l8-8m0 0H5m7 0v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- ADD MORE POSTS: Copy a linkedin-post-card block above and paste here -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LinkedIn Embedded Post Section -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span class="section-tag">Embedded</span>
+                <h2>Featured <em>Post</em></h2>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0.5rem auto 0;">To embed a real LinkedIn post, go to any of your LinkedIn posts → click "..." → "Embed this post" → paste the embed code below.</p>
+            </div>
+            <div class="linkedin-feed-embed reveal-up">
+                <!-- 
+                    HOW TO EMBED A LINKEDIN POST:
+                    1. Go to your LinkedIn post
+                    2. Click the three dots (...) on the post
+                    3. Select "Embed this post"
+                    4. Copy the <iframe> code
+                    5. Paste it below replacing the placeholder
+                -->
+                <div id="linkedinEmbed" style="min-height: 300px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem; color: var(--text-muted);">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <rect x="6" y="6" width="36" height="36" rx="4" stroke="currentColor" stroke-width="2" opacity="0.5"/>
+                        <path d="M16 22v10m8-7v7m0-5c0-3 2-5 5-5s3 2 3 5v5M16 17v.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+                    </svg>
+                    <p>Paste your LinkedIn embed code here</p>
+                    <p style="font-size: 0.8rem; opacity: 0.6;">Replace this div's content with an &lt;iframe&gt; from LinkedIn</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Big CTA -->
+    <section class="section linkedin-cta">
+        <div class="container">
+            <div class="cta-card reveal-up">
+                <h2>Let's <em>Connect</em> on LinkedIn</h2>
+                <p>Follow me on LinkedIn for daily insights on tech, cybersecurity, development, and my journey as a CS student. I'd love to connect with you!</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem;">
+                    <a href="https://www.linkedin.com/in/cyber-devansh/recent-activity/all/" target="_blank" class="btn btn-primary">
+                        View My Posts
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12l8-8m0 0H5m7 0v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/cyber-devansh" target="_blank" class="btn btn-linkedin">
+                        <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M6 9v5m4-3.5V14m0-2.5c0-1.5 1-2.5 2.5-2.5s1.5 1 1.5 2.5V14M6 6.5v0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                        Connect on LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo"><div class="logo-icon">DG</div><span>Devansh</span></a>
+                    <p class="footer-desc">B.Tech Computer Science student passionate about development, cybersecurity, and building meaningful technology.</p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/in/cyber-devansh" target="_blank" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M6 9v5m4-3.5V14m0-2.5c0-1.5 1-2.5 2.5-2.5s1.5 1 1.5 2.5V14M6 6.5v0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+                        <a href="https://github.com/" target="_blank" aria-label="GitHub"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2C5.58 2 2 5.58 2 10c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0018 10c0-4.42-3.58-8-8-8z" stroke="currentColor" stroke-width="1.2"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-links-group"><h4>Pages</h4><a href="index.html">Home</a><a href="skills.html">Skills</a><a href="projects.html">Projects</a><a href="certifications.html">Certifications</a></div>
+                <div class="footer-links-group"><h4>More</h4><a href="hackathons.html">Hackathons</a><a href="journey.html">Journey</a><a href="posts.html">LinkedIn Posts</a><a href="contact.html">Contact</a></div>
+                <div class="footer-links-group"><h4>Connect</h4><a href="https://www.linkedin.com/in/cyber-devansh" target="_blank">LinkedIn</a><a href="https://github.com/" target="_blank">GitHub</a><a href="mailto:your.email@example.com">Email</a></div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Devansh Gupta. All rights reserved.</p>
+                <a href="#" class="back-to-top" aria-label="Back to top"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 15V5m0 0l-4 4m4-4l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+        </div>
+    </footer>
+    <script src="js/app.js"></script>
+    <script>
+    // ============================================
+    // LINKEDIN POSTS - DYNAMIC FETCHING
+    // ============================================
+    // LinkedIn does not provide a free public API for fetching posts.
+    // This script attempts to load posts via an RSS-to-JSON proxy.
+    // If it fails, it gracefully falls back to manually curated posts.
+    
+    (function() {
+        const dynamicArea = document.getElementById('dynamicPosts');
+        const loadingEl = document.getElementById('postsLoading');
+        const fallbackEl = document.getElementById('fallbackPosts');
+        const LINKEDIN_PROFILE = 'cyber-devansh';
+        const LINKEDIN_URL = `https://www.linkedin.com/in/${LINKEDIN_PROFILE}`;
+        
+        // Attempt 1: Try LinkedIn RSS via rss2json proxy
+        async function fetchLinkedInPosts() {
+            try {
+                // LinkedIn doesn't expose public RSS for posts.
+                // Try a CORS proxy approach with LinkedIn's activity feed
+                const rssUrl = `https://www.linkedin.com/in/${LINKEDIN_PROFILE}/recent-activity/all/`;
+                
+                // Try rss2json service (works for public RSS feeds)
+                const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+                
+                const response = await fetch(apiUrl, {
+                    signal: AbortSignal.timeout(8000) // 8 second timeout
+                });
+                
+                if (!response.ok) throw new Error('RSS fetch failed');
+                
+                const data = await response.json();
+                if (data.status === 'ok' && data.items && data.items.length > 0) {
+                    renderDynamicPosts(data.items);
+                    return true;
+                }
+                throw new Error('No items found');
+            } catch (err) {
+                console.log('LinkedIn RSS fetch unavailable:', err.message);
+                return false;
+            }
+        }
+        
+        function renderDynamicPosts(items) {
+            const grid = document.createElement('div');
+            grid.className = 'linkedin-embed-grid';
+            
+            items.slice(0, 6).forEach((item, i) => {
+                const card = document.createElement('div');
+                card.className = 'linkedin-post-card reveal-up';
+                card.style.setProperty('--delay', `${0.05 * (i + 1)}s`);
+                
+                const title = item.title || 'LinkedIn Post';
+                const desc = item.description || item.content || '';
+                const cleanDesc = desc.replace(/<[^>]*>/g, '').substring(0, 200);
+                const pubDate = item.pubDate ? new Date(item.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+                const link = item.link || LINKEDIN_URL;
+                
+                card.innerHTML = `
+                    <div class="post-card-header">
+                        <div class="post-avatar">DG</div>
+                        <div class="post-author-info">
+                            <h4>Devansh Gupta</h4>
+                            <span>${pubDate}</span>
+                        </div>
+                    </div>
+                    <div class="post-card-body">
+                        <p>${cleanDesc || title}</p>
+                    </div>
+                    <div class="post-card-footer">
+                        <a href="${link}" target="_blank">
+                            View Post on LinkedIn
+                            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 12l8-8m0 0H5m7 0v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+            
+            dynamicArea.innerHTML = '';
+            dynamicArea.appendChild(grid);
+            
+            // Re-init reveal observer for new elements
+            if (typeof initRevealObserver === 'function') initRevealObserver();
+        }
+        
+        function showFallback() {
+            dynamicArea.innerHTML = `
+                <div class="posts-error">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+                        <path d="M20 14v6m0 4h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <p>LinkedIn posts can't be loaded dynamically due to API restrictions.</p>
+                    <p style="font-size:0.85rem; margin-top:0.5rem;">Showing curated posts below • <a href="https://www.linkedin.com/in/${LINKEDIN_PROFILE}/recent-activity/all/" target="_blank" style="color:var(--accent);">View live posts on LinkedIn →</a></p>
+                </div>
+            `;
+            fallbackEl.style.display = 'block';
+        }
+        
+        // Execute
+        (async () => {
+            const success = await fetchLinkedInPosts();
+            if (!success) {
+                showFallback();
+            }
+        })();
+    })();
+    </script>
+</body>
+</html>
