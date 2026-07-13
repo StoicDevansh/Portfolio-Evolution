@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aria Vale | Portfolio</title>
+    <meta
+      name="description"
+      content="Premium interactive portfolio experience with cinematic motion and modern UX."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-transition" id="pageTransition" aria-hidden="true"></div>
+    <div class="noise"></div>
+    <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+    <header class="hero" id="home">
+      <nav class="nav glass" aria-label="Primary">
+        <div class="brand">ARIA VALE</div>
+        <ul>
+          <li><a href="#work" class="nav-link">Work</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="hero-grid">
+        <div class="hero-copy reveal" data-reveal="up">
+          <p class="eyebrow">Digital Product Designer & Creative Developer</p>
+          <h1>Crafting digital worlds that feel luxurious, alive, and unforgettable.</h1>
+          <p class="lead">
+            I design and build premium web experiences with cinematic interaction,
+            conversion-focused UX, and engineering precision.
+          </p>
+          <div class="hero-actions">
+            <a href="#work" class="btn btn-solid">Explore Work</a>
+            <a href="#contact" class="btn btn-ghost">Start a Project</a>
+          </div>
+        </div>
+
+        <div class="hero-card parallax" data-speed="0.2">
+          <div class="stat">
+            <span>42</span>
+            <p>Launched projects</p>
+          </div>
+          <div class="stat">
+            <span>95%</span>
+            <p>Client retention</p>
+          </div>
+          <div class="stat">
+            <span>4.9/5</span>
+            <p>Average satisfaction</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="work section" id="work">
+        <div class="section-heading reveal" data-reveal="up">
+          <p class="eyebrow">Selected Work</p>
+          <h2>Immersive products for ambitious brands</h2>
+        </div>
+
+        <div class="project-grid">
+          <article class="project glass reveal parallax" data-reveal="up" data-speed="0.08">
+            <div class="project-tag">SaaS</div>
+            <h3>Atlas Finance Platform</h3>
+            <p>
+              Complete redesign with motion-led onboarding and analytics storytelling.
+            </p>
+            <a href="#" class="project-link exit-link">View case study</a>
+          </article>
+
+          <article class="project glass reveal parallax" data-reveal="up" data-speed="0.12">
+            <div class="project-tag">E-Commerce</div>
+            <h3>Maison Lumiere</h3>
+            <p>
+              Premium fashion storefront with tactile interactions and uplifted AOV.
+            </p>
+            <a href="#" class="project-link exit-link">View case study</a>
+          </article>
+
+          <article class="project glass reveal parallax" data-reveal="up" data-speed="0.16">
+            <div class="project-tag">Hospitality</div>
+            <h3>Vantage Hotels</h3>
+            <p>
+              Experience-first booking flow delivering lower friction and higher trust.
+            </p>
+            <a href="#" class="project-link exit-link">View case study</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="about section" id="about">
+        <div class="about-panel glass reveal" data-reveal="up">
+          <p class="eyebrow">About</p>
+          <h2>I combine visual restraint with bold interaction design.</h2>
+          <p>
+            My process blends brand strategy, information architecture, and modern
+            frontend engineering to create interfaces that look premium and perform
+            under pressure.
+          </p>
+        </div>
+      </section>
+
+      <section class="contact section" id="contact">
+        <div class="contact-wrap glass reveal" data-reveal="up">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2>Let us build something remarkable.</h2>
+            <p>Submit a brief and I will reach out within 24 hours.</p>
+          </div>
+
+          <form id="contactForm" class="contact-form" novalidate>
+            <label>
+              Name
+              <input type="text" name="name" required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" required />
+            </label>
+            <label>
+              Budget
+              <select name="budget" required>
+                <option value="">Choose one</option>
+                <option value="$5k-$15k">$5k-$15k</option>
+                <option value="$15k-$30k">$15k-$30k</option>
+                <option value="$30k+">$30k+</option>
+              </select>
+            </label>
+            <label>
+              Project details
+              <textarea name="message" rows="4" required></textarea>
+            </label>
+            <button type="submit" class="btn btn-solid">Send Inquiry</button>
+            <p id="formMessage" class="form-message" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> Aria Vale Studio. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

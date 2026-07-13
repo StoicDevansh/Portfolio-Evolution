@@ -1,0 +1,16 @@
+{
+  "name": "premium-portfolio",
+  "version": "1.0.0",
+  "description": "Interactive portfolio with Node and SQLite",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "sqlite3": "^5.1.7"
+  }
+}
